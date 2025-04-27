@@ -1,0 +1,7 @@
+baseURL = "https://sameerk126.github.io/blog/"
+title = "Sameer Kulkarni - Blog"
+theme = "ananke"
+publishDir = "blog"
+
+[params]
+  custom_css = ["css/custom.css"]
