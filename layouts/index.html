@@ -1,50 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Site.Title }}</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/css/custom.css">
-</head>
-<body class="light-mode">
-  <nav class="bg-gray-800 p-4">
-    <div class="max-w-4xl mx-auto flex justify-between">
-      <a href="/blog" class="text-white hover:text-blue-300">Blog</a>
-      <a href="/" class="text-white hover:text-blue-300">Portfolio</a>
-    </div>
-  </nav>
-  <button class="mode-toggle" onclick="toggleMode()">Toggle Mode</button>
-  <header class="text-center py-10">
-    <img src="/blog/images/yin-yang-01.png" alt="Yin-Yang Logo" class="header-img">
-    <h1 class="text-4xl inline-block">Sameer Kulkarni</h1>
-    <p class="text-lg">Aspiring ML Engineer | AI Enthusiast</p>
-  </header>
-
-  <main class="max-w-4xl mx-auto px-4 py-10">
-    <h2 class="text-3xl mb-6">Latest Posts</h2>
-    {{ range .Site.RegularPages }}
-      <div class="post-card" data-aos="fade-up">
-        <h3 class="text-2xl mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p class="text-sm mb-2">{{ .Date.Format "January 02, 2006" }}</p>
-        <p>{{ .Summary | truncate 150 }}</p>
-      </div>
-    {{ end }}
-  </main>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000 });
-    function toggleMode() {
-      const body = document.body;
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
-    }
-  </script>
-</body>
-</html>
+{{ range .Site.RegularPages }}
+  <div class="post-card" data-aos="fade-up">
+    <h3 class="text-2xl mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <p class="text-sm mb-2">{{ .Date.Format "January 02, 2006" }}</p>
+    <p>{{ .Content | truncate 150 }}</p>
+  </div>
+{{ end }}
