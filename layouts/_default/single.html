@@ -23,7 +23,7 @@
 
   <main class="max-w-4xl mx-auto px-4 py-10">
     <h1 class="text-3xl mb-4">{{ .Title }}</h1>
-    <p class="text-sm mb-6">{{ .Date.Format "January 02, 2006" }}</p>
+    <p class="text-sm mb-6">{{ if .Date }}{{ .Date.Format "January 02, 2006" }}{{ else }}Date not available{{ end }}</p>
     <div class="prose">{{ .Content }}</div>
     <a href="/blog" class="text-blue-400 hover:underline mt-4 inline-block">Back to Blog</a>
   </main>
